@@ -1,0 +1,40 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block titleMeta %}Inicio{% endblock %}
+{% block title %}inicio{% endblock %}
+{% block formulario %}
+    <h3>Busqueda</h3>
+    <form action="{% url 'buscar' %}" method="GET">
+        <label class="select" for="model">Buscar<select name="model" >
+            <option value="curso">Curso</option>
+            <option value="profesor">Profesor</option>
+            <option value="estudiante">Estudiantes</option>
+        </select></label>
+        <label for="nombre">Nombre<input type="text" name="nombre"/></label>
+        <input class="btn--buscador" type="submit" value="Enviar">
+    </form>
+{% endblock %}
+
+{% block array %}
+    <h2>Busqueda realizadas hacia: {{bodyNombre}}</h2>
+    <div class="section">
+        {% for res in resultado %}
+            <div class="section__card">
+                <h3>Nombre: {{res.nombre}}</h3>
+                {% if res.camada %}
+                    <p>Camada: {{res.camada}}</p>
+                {% endif %}
+                {% if res.apellido %}
+                    <p>Apellido: {{res.apellido}}</p>
+                {% endif %}
+                {% if res.email %}
+                    <p>Email: {{res.email}}</p>
+                {% endif %}
+                {% if res.profesion %}
+                    <p>Profesion: {{res.profesion}}</p>
+                {% endif %}
+                
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

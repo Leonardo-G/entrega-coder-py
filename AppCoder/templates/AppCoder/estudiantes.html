@@ -1,0 +1,28 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block titleMeta %}estudiantes{% endblock %}
+{% block title %}estudiantes{% endblock %}
+{% block formulario %}
+    <h3>Ingresa un nuevo Estudiante</h3>
+    <form action="{% url 'estudiantes' %}" method="POST">{% csrf_token %}
+        <table>
+            {{formEstudiante.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}
+
+{% block titlemodel %}Estudiantes{% endblock %} 
+
+{% block array %}
+    <h2>Estudiantes registrados en los cursos:</h2>
+    <div class="section">
+        {% for estudiante in estudiantes %}
+            <div class="section__card">
+                <h3>Nombre: {{estudiante.nombre}}</h3>
+                <p>Apellido: {{ estudiante.apellido }}</p>
+                <p>Email: {{ estudiante.email }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

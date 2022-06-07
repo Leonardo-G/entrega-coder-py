@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AppCoder/css/estilos.css' %}">
+    <title>{% block titleMeta %}{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="container">
+            <div class="navegacion">
+                <a class="navegacion__enlace" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navegacion__enlace" href="{% url 'estudiantes' %}">Estudiantes</a>
+                <a class="navegacion__enlace" href="{% url 'profesores' %}">Profesores</a>
+                <a class="navegacion__enlace" href="{% url 'cursos' %}">Cursos</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="portada">
+            <img src="{% static 'AppCoder/assets/header.jpg' %}"/>
+            <div class="page">
+                <div class="page__title">
+                    <h1>{% block title %}{% endblock %}.</h1>
+                </div>
+                <div class="page__form">
+                    {% block formulario %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        
+        <section class="container">
+            {% block array %}
+            {% endblock %}
+        </section>
+    </main>
+</body>
+</html>

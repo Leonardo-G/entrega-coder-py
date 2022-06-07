@@ -1,0 +1,27 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block titleMeta %}Cursos{% endblock %}
+{% block title %}cursos{% endblock %}
+{% block formulario %}
+    <h3>Ingresa un nuevo Curso</h3>
+    <form action="{% url 'cursos' %}" method="POST">{% csrf_token %}
+        <table>
+            {{formCurso.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}
+
+{% block titlemodel %}Cursos{% endblock %} 
+
+{% block array %}
+    <h2>Cursos disponibles:</h2>
+    <div class="section">
+        {% for curso in cursos %}
+            <div class="section__card">
+                <h3>Nombre: {{curso.nombre}}</h3>
+                <p>Camada: {{ curso.camada }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

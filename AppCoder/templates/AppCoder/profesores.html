@@ -1,0 +1,29 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block titleMeta %}profesores{% endblock %}
+{% block title %}profesores{% endblock %}
+{% block formulario %}
+    <h3>Ingresa un nuevo Profesor</h3>
+    <form action="{% url 'profesores' %}" method="POST">{% csrf_token %}
+        <table>
+            {{formProfesor.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}
+
+{% block titlemodel %}Profesores{% endblock %} 
+
+{% block array %}
+    <h2>Profesores en los cursos:</h2>
+    <div class="section">
+        {% for profesor in profesores %}
+            <div class="section__card">
+                <h3>Nombre: {{profesor.nombre}}</h3>
+                <p>Apellido: {{ profesor.apellido }}</p>
+                <p>Email: {{ profesor.email }}</p>
+                <p>Profesion: {{ profesor.profesion }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
