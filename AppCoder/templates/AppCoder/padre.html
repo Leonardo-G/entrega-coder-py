@@ -16,6 +16,7 @@
         <nav class="container">
             <div class="navegacion">
                 <a class="navegacion__enlace" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navegacion__enlace" href="{% url 'nosotros' %}">Nosotros</a>
                 <a class="navegacion__enlace" href="{% url 'estudiantes' %}">Estudiantes</a>
                 <a class="navegacion__enlace" href="{% url 'profesores' %}">Profesores</a>
                 <a class="navegacion__enlace" href="{% url 'cursos' %}">Cursos</a>
@@ -31,6 +32,8 @@
                 </div>
                 <div class="page__form">
                     {% block formulario %}
+                    {% endblock %}
+                    {% block content %}
                     {% endblock %}
                 </div>
             </div>

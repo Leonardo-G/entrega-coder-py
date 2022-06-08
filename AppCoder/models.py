@@ -14,3 +14,8 @@ class Profesor(models.Model):
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
     profesion = models.CharField(max_length=30)
+
+class Nosotros(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    camada = models.IntegerField()

@@ -1,0 +1,65 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+{% block titleMeta %}Nosotros{% endblock %}
+{% block title %}Nosotros{% endblock %}
+
+{% block content %}
+    <style>
+        body{
+            color: white;
+            background: rgb(84,84,84);
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            width: 45vw;
+            gap: 1rem;
+            opacity: 0.7;
+        }
+        .card{
+            background: rgb(128,128,128);
+            border-radius: 1rem;
+            padding: 1rem;
+            width: auto;
+            text-align: center;
+        }
+        .navbar{
+            background: rgb(48,48,48);
+            width: calc(100%-2rem);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        h1{
+            margin: 0;
+        }
+        .pic{
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;  
+        }
+        .titulo{
+            margin-left: 1rem;
+        }
+    </style>
+
+    <div class="container">
+        {% for n in nosotros %}
+            <a href="/nosotros/{{n.id}}">
+                <div class="card">
+                    <img class="pic" src="http://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="">
+                    <h2>Nombre: {{n.nombre}}</h2>
+                    <br>
+                    <h2>Apellido: {{n.apellido}}</h2>
+                    <h3>Camada: {{n.camada}}</h3>
+                </div>
+            </a>
+        {% endfor %}
+    </div>    
+{% endblock %}

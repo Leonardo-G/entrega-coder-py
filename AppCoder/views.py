@@ -2,10 +2,15 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from AppCoder import forms
 from AppCoder import models
+from .models import Nosotros
 
 def inicio(request):
     
     return render(request, "AppCoder/inicio.html");
+
+def nosotros(request):
+    nosotros_list = Nosotros.objects.all()
+    return render(request, 'AppCoder/nosotros.html',{'nosotros':nosotros_list})
 
 def busqueda(request):
     if request.GET["model"] == "curso":
