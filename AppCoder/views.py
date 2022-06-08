@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from AppCoder import forms
 from AppCoder import models
 from .models import Nosotros
@@ -48,7 +48,7 @@ def estudiantesForm( request ):
  
             estudiante.save()
             
-            return render(request, "AppCoder/estudiantes.html", {"formEstudiante": formEstudiante})  
+            return redirect("estudiantes");  
         
     else:
         formEstudiante = forms.EstudianteForm()
@@ -67,7 +67,7 @@ def profesorForm( request ):
  
             profesor.save()
             
-            return render(request, "AppCoder/profesores.html", {"formProfesor": formProfesor})  
+            return redirect("profesores");  
         
     else:
         formProfesor = forms.ProfesorForm()
@@ -86,7 +86,7 @@ def cursosForm( request ):
  
             curso.save()
             
-            return render(request, "AppCoder/cursos.html", {"formCurso": formCurso})  
+            return redirect("cursos");  
         
     else:
         formCurso = forms.CursoForm()
