@@ -19,3 +19,4 @@ class Nosotros(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     camada = models.IntegerField()
+    url = models.CharField(max_length=100)

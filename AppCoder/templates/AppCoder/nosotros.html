@@ -51,7 +51,7 @@
 
     <div class="container">
         {% for n in nosotros %}
-            <a href="/nosotros/{{n.id}}">
+            <a href={{n.url}}>
                 <div class="card">
                     <img class="pic" src="http://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="">
                     <h2>Nombre: {{n.nombre}}</h2>
